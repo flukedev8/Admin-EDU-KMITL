@@ -20,19 +20,19 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.title" label="คติประจำใจ"></v-text-field>
+                  <v-text-field v-model="editedItem.youtubeID" label="link youtube"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.fristname" label="ชื่อจริง"></v-text-field>
+                  <v-text-field v-model="editedItem.title" label="ชื่อคอร์ส"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.lastname" label="นามสกุลจริง"></v-text-field>
+                  <v-text-field v-model="editedItem.number" label="รหัสวิชา"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.image" label="ภาพ"></v-text-field>
+                  <v-text-field v-model="editedItem.professor" label="อาจารย์ประจำวิชา"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.Abstract" label="ข้อความแนะนำตัว"></v-text-field>
+                  <v-text-field v-model="editedItem.Abstract" label="รายละเอียด"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -52,10 +52,10 @@
       class="elevation-1"
     >
       <template slot="items" slot-scope="props">
-        <td>{{ props.item.title }}</td>
-        <td class="text-xs-right">{{ props.item.fristname }}</td>
-        <td class="text-xs-right">{{ props.item.lastname }}</td>
-        <td class="text-xs-right">{{ props.item.image }}</td>
+        <td>{{ props.item.youtubeID }}</td>
+        <td class="text-xs-right">{{ props.item.title }}</td>
+        <td class="text-xs-right">{{ props.item.number }}</td>
+        <td class="text-xs-right">{{ props.item.professor }}</td>
         <td class="text-xs-right">{{ props.item.Abstract }}</td>
         <td class="justify-center layout px-0">
           <v-icon
@@ -95,32 +95,32 @@ export default {
     dialog: false,
     headers: [
       {
-        text: 'คติประจำใจ',
+        text: 'link youtube',
         align: 'left',
         sortable: false,
         value: 'name'
       },
-      { text: 'ชื่อจริง', value: 'calories' },
-      { text: 'นามสกุลจริง', value: 'fat' },
-      { text: 'ภาพ', value: 'carbs' },
-      { text: 'ข้อความแนะนำตัว', value: 'protein' },
+      { text: 'ชื่อคอร์ส', value: 'calories' },
+      { text: 'รหัสวิชา', value: 'fat' },
+      { text: 'อาจารย์ประจำวิชา', value: 'carbs' },
+      { text: 'รายละเอียด', value: 'protein' },
       { text: 'Actions', value: 'name', sortable: false }
     ],
     desserts: [],
     editedIndex: -1,
     editedItem: {
+      youtubeID: '',
       title: '',
-      fristname: '',
-      lastname: '',
-      Abstract: '',
-      image: ''
+      number: '',
+      professor: '',
+      Abstract: ''
     },
     defaultItem: {
+      youtubeID: '',
       title: '',
-      fristname: '',
-      lastname: '',
-      Abstract: '',
-      image: ''
+      number: '',
+      professor: '',
+      Abstract: ''
     }
   }),
   computed: {
@@ -141,18 +141,18 @@ export default {
     initialize () {
       this.desserts = [
         {
-          title: 'คติประจำใจ 1',
-          fristname: 'test',
-          lastname: 'test',
-          Abstract: 'test',
-          image: 'test'
+          youtubeID: 'C2zJwxNk1OE',
+          title: 'test',
+          number: '16541',
+          professor: 'mr.test',
+          Abstract: 'รายละเอียด 1'
         },
         {
-          title: 'คติประจำใจ 2',
-          fristname: 'test',
-          lastname: 'test',
-          Abstract: 'test',
-          image: 'test'
+          youtubeID: 'C2zJwxNk1OE',
+          title: 'test',
+          number: '1654',
+          professor: 'mr.test',
+          Abstract: 'รายละเอียด 1'
         }
       ]
     },
